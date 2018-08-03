@@ -1,5 +1,6 @@
 #!/bin/bash
-set -o nounset -o errexit -o pipefail
+#set -o nounset -o errexit -o pipefail
+set -x
 
 #Configure Spark if present
 if [ -n "${SPARK_HOME:-}" ]; then
@@ -18,3 +19,5 @@ echo -e "initialWorkingDirectory=\"${DRT_WORKING_DIR:-"${DOMINO_WORKING_DIR}"}\"
 
 
 /usr/lib/rstudio-server/bin/rserver --www-port=8888 --auth-none=1 --server-app-armor-enabled=0
+echo $?
+exit 0
